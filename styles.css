@@ -1,0 +1,644 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(90deg, #4B5EAA, #A77BCA);
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Navigation */
+nav {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-img {
+    width: 100px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap; /* Allow links to wrap on smaller screens */
+    gap: 1rem; /* Add spacing between buttons */
+}
+
+.nav-links li {
+    margin: 0; /* Remove the previous margin-left */
+}
+
+.nav-button {
+    background: #A77BCA; /* Same color as other buttons for consistency */
+    color: #fff;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 700;
+    font-family: 'Cinzel', serif;
+    transition: background 0.3s ease;
+}
+
+.nav-button:hover {
+    background: #4B5EAA;
+}
+
+/* Top Right Button Styles */
+.top-right-button {
+    display: flex;
+    align-items: center;
+}
+
+.top-right-button .cta-button {
+    background: #A77BCA;
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 700;
+    transition: background 0.3s ease;
+}
+
+.top-right-button .cta-button:hover {
+    background: #4B5EAA;
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 768px) {
+    nav {
+        flex-wrap: wrap; /* Allow nav items to wrap on smaller screens */
+        padding: 0.5rem 1rem;
+    }
+
+    .logo-img {
+        width: 80px; /* Slightly smaller logo on mobile */
+    }
+
+    .nav-links {
+        gap: 0.5rem; /* Reduce gap between buttons */
+    }
+
+    .nav-button {
+        padding: 0.4rem 0.8rem; /* Smaller padding for buttons */
+        font-size: 0.9rem; /* Slightly smaller font size */
+    }
+
+    .top-right-button .cta-button {
+        padding: 0.4rem 1rem; /* Adjust padding for the Book Now button */
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-links {
+        justify-content: center; /* Center the buttons on very small screens */
+        gap: 0.3rem;
+    }
+
+    .nav-button {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+    }
+
+    .top-right-button .cta-button {
+        padding: 0.3rem 0.8rem;
+        font-size: 0.8rem;
+    }
+}
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: rgba(0, 0, 0, 0.9);
+        width: 100%;
+        padding: 1rem 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+        text-align: center;
+    }
+
+    .top-right-button {
+        display: none; /* Hide the button in the mobile view to avoid clutter */
+    }
+
+    .burger {
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    .top-right-button {
+        display: none; /* Ensure the button remains hidden on smaller screens */
+    }
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    background: url('hero-bg.jpg') no-repeat center center/cover;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-family: 'Cinzel', serif;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    background: #A77BCA;
+    color: #fff;
+    padding: 0.8rem 2rem;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 700;
+    transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #4B5EAA;
+}
+
+/* Services Overview */
+/* Services Overview */
+.services-overview {
+    padding: 5rem 2rem;
+    text-align: center;
+    background: #fff;
+}
+
+.services-overview h2 {
+    font-size: 2.5rem;
+    font-family: 'Cinzel', serif;
+    margin-bottom: 3rem;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.service-card h3 {
+    font-family: 'Cinzel', serif;
+    margin-bottom: 1rem;
+}
+
+.service-img {
+    width: 100%;
+    max-width: 300px; /* Prevent the image from becoming too wide */
+    height: auto; /* Let the height adjust based on the aspect ratio */
+    max-height: 200px; /* Cap the height to avoid overly tall images */
+    object-fit: contain; /* Ensure the entire image is visible without cropping */
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    display: block; /* Ensure the image behaves as a block element */
+    margin-left: auto;
+    margin-right: auto; /* Center the image if it's smaller than the container */
+}
+
+/* Services Page */
+.services {
+    padding: 8rem 2rem;
+    text-align: center;
+    background: #fff;
+}
+
+.services h1 {
+    font-size: 2.5rem;
+    font-family: 'Cinzel', serif;
+    margin-bottom: 2rem;
+}
+
+.service-details {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.service-item {
+    margin-bottom: 2rem;
+}
+
+.service-item-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    text-align: left;
+}
+
+.service-item-content .service-img {
+    width: 150px;
+    height: auto; /* Let the height adjust based on the aspect ratio */
+    max-height: 150px; /* Cap the height to avoid overly tall images */
+    object-fit: contain; /* Ensure the entire image is visible without cropping */
+    border-radius: 10px;
+}
+
+.service-text h2 {
+    font-family: 'Cinzel', serif;
+    margin-bottom: 1rem;
+}
+
+/* Responsive Design for Services Images */
+@media (max-width: 768px) {
+    .service-item-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .service-item-content .service-img {
+        width: 100%;
+        max-width: 200px; /* Smaller max-width on mobile */
+        height: auto;
+        max-height: 200px;
+    }
+
+    .service-img {
+        max-width: 250px; /* Slightly smaller on tablet-sized screens */
+        max-height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-img {
+        max-width: 200px; /* Even smaller on mobile */
+        max-height: 150px;
+    }
+
+    .service-item-content .service-img {
+        max-width: 150px;
+        max-height: 150px;
+    }
+}
+
+/* Testimonials */
+.testimonials {
+    padding: 5rem 2rem;
+    text-align: center;
+    background: #f4f4f4;
+}
+
+.testimonials h2 {
+    font-size: 2.5rem;
+    font-family: 'Cinzel', serif;
+    margin-bottom: 3rem;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.testimonial-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-card h4 {
+    margin-top: 1rem;
+    font-family: 'Cinzel', serif;
+}
+
+/* About Page */
+.about {
+    padding: 8rem 2rem;
+    text-align: center;
+    background: #fff;
+}
+
+.about h1 {
+    font-size: 2.5rem;
+    font-family: 'Cinzel', serif;
+    margin-bottom: 2rem;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.about-img {
+    width: 300px;
+    border-radius: 10px;
+}
+
+.about-text {
+    max-width: 600px;
+}
+
+/* Services Page */
+.services {
+    padding: 8rem 2rem;
+    text-align: center;
+    background: #fff;
+}
+
+.services h1 {
+    font-size: 2.5rem;
+    font-family: 'Cinzel', serif;
+    margin-bottom: 2rem;
+}
+
+.service-details {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.service-item {
+    margin-bottom: 2rem;
+}
+
+.service-item h2 {
+    font-family: 'Cinzel', serif;
+    margin-bottom: 1rem;
+}
+
+/* Pricing Page */
+.pricing {
+    padding: 8rem 2rem;
+    text-align: center;
+    background: #fff;
+}
+
+.pricing h1 {
+    font-size: 2.5rem;
+    font-family: 'Cinzel', serif;
+    margin-bottom: 3rem;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.pricing-card {
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.pricing-card h2 {
+    font-family: 'Cinzel', serif;
+    margin-bottom: 1rem;
+}
+
+.price {
+    font-size: 1.5rem;
+    color: #A77BCA;
+    margin-bottom: 1rem;
+}
+
+.pricing-card ul {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.pricing-card ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* Login Page */
+.login {
+    padding: 8rem 2rem;
+    text-align: center;
+    background: #fff;
+}
+
+.login h1 {
+    font-size: 2.5rem;
+    font-family: 'Cinzel', serif;
+    margin-bottom: 2rem;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.login-form, .signup-form {
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-form h2, .signup-form h2 {
+    font-family: 'Cinzel', serif;
+    margin-bottom: 1rem;
+}
+
+.login-form label, .signup-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.login-form input, .signup-form input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-form button, .signup-form button {
+    width: 100%;
+}
+
+/* Contact Page */
+.contact {
+    padding: 8rem 2rem;
+    text-align: center;
+    background: #fff;
+}
+
+.contact h1 {
+    font-size: 2.5rem;
+    font-family: 'Cinzel', serif;
+    margin-bottom: 2rem;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+#contact-form {
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+#contact-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+#contact-form input, #contact-form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#contact-form textarea {
+    height: 150px;
+}
+
+.contact-info {
+    max-width: 400px;
+    text-align: left;
+}
+
+.contact-info h2 {
+    font-family: 'Cinzel', serif;
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    padding: 2rem;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    font-family: 'Cinzel', serif;
+    margin-bottom: 1rem;
+}
+
+.social-links a {
+    color: #A77BCA;
+    margin: 0 0.5rem;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: #fff;
+}
+
+.footer-bottom {
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: rgba(0, 0, 0, 0.9);
+        width: 100%;
+        padding: 1rem 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+        text-align: center;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .cta-button {
+        padding: 0.5rem 1.5rem;
+    }
+}
